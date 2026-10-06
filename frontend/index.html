@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bamira Ateliê - Velas Artesanais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <nav class="navigation-bar">
+            <!-- Logo (lado esquerdo) -->
+            <div class="logo-container">
+                <h1 class="site-logo">
+                    Bamira Ateliê
+                </h1>
+            </div>
+
+            <!-- Navegação e carrinho (lado direito) -->
+            <div class="nav-actions">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">HOME</a></li>
+                    <li><a href="sobre.html" class="nav-link">SOBRE</a></li>
+                    <li><a href="contato.html" class="nav-link">CONTATO</a></li>
+                </ul>
+                <a href="#carrinho" class="cart-link" aria-label="Ver carrinho">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="site-main">
+        <nav class="catalog-navigation" aria-label="Filtrar catálogo">
+            <p class="catalog-navigation-label">Encontre sua vela</p>
+            <ul class="catalog-filter-list">
+                <li><button type="button" class="catalog-filter is-active" data-filter="todos">Todos</button></li>
+                <li><button type="button" class="catalog-filter" data-filter="gourmet">Gourmet</button></li>
+                <li><button type="button" class="catalog-filter" data-filter="kits">Kits</button></li>
+            </ul>
+        </nav>
+        <section class="hero-carousel" aria-label="Destaques Bamira" aria-roledescription="carrossel">
+            <div class="hero-slides" id="hero-slides"></div>
+            <button type="button" class="hero-control hero-control-previous" aria-label="Slide anterior"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="hero-control hero-control-next" aria-label="Próximo slide"><i class="fas fa-chevron-right"></i></button>
+            <div class="hero-dots" id="hero-dots" aria-label="Selecionar slide"></div>
+        </section>
+        <!-- Seção de Produtos -->
+        <section class="products-section" id="catalogo" aria-labelledby="products-title">
+            <h2 class="section-title" id="products-title">Nossos Produtos</h2>
+            <p class="catalog-result" id="catalog-result" aria-live="polite"></p>
+            
+            <div class="products-grid" id="products-grid"></div>
+        </section>
+    </main>
+
+    <dialog class="product-dialog" id="product-dialog" aria-labelledby="product-dialog-title">
+        <form method="dialog" class="product-dialog-close-form">
+            <button type="submit" class="product-dialog-close" aria-label="Fechar detalhes do produto"><i class="fas fa-times"></i></button>
+        </form>
+        <div class="product-dialog-layout">
+            <img class="product-dialog-image" alt="">
+            <div class="product-dialog-info">
+                <p class="product-dialog-eyebrow">Bamira Ateliê</p>
+                <h2 id="product-dialog-title"></h2>
+                <p class="product-dialog-description"></p>
+                <p class="product-dialog-price"></p>
+                <div class="volume-selector" role="group" aria-label="Volume da vela" hidden>
+                    <button type="button" class="volume-option" data-volume="100ml" aria-pressed="true">100 ml</button>
+                    <button type="button" class="volume-option" data-volume="50ml" aria-pressed="false">50 ml</button>
+                </div>
+                <button type="button" class="add-to-cart-button product-dialog-add">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <nav class="social-links">
+            <a 
+                href="https://www.instagram.com/bamira.atelie/" 
+                class="social-link social-instagram" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Nos siga no Instagram"
+            >
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+            
+            <a 
+                href="https://wa.me/5511939064383"
+                class="social-link social-whatsapp" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Fale conosco no WhatsApp"
+            >
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+            </a>
+        </nav>
+        
+        <p class="footer-copyright">
+            &copy; 2026 Bamira Ateliê. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <div class="cart-backdrop hidden" id="cart-backdrop"></div>
+    <aside class="cart-panel hidden" id="cart-panel" aria-hidden="true">
+        <div class="cart-panel-header">
+            <div>
+                <h2>Carrinho</h2>
+                <p class="cart-panel-subtitle">Itens adicionados e total do pedido</p>
+            </div>
+            <button class="cart-close" aria-label="Fechar carrinho">×</button>
+        </div>
+
+        <div class="cart-panel-content">
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-empty-message">Seu carrinho está vazio.</div>
+        </div>
+
+        <div class="cart-panel-footer">
+            <div class="cart-summary">
+                <span>Total</span>
+                <strong class="cart-total" id="cart-total">R$ 0,00</strong>
+            </div>
+            <button class="checkout-button" id="checkout-button" disabled>Finalizar compra</button>
+        </div>
+    </aside>
+
+    <script src="./scripts/cart.js"></script>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

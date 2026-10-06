@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Bamira Ateliê</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navigation-bar">
+            <div class="logo-container">
+                <h1 class="site-logo">
+                    Bamira Ateliê
+                </h1>
+            </div>
+
+            <div class="nav-actions">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="sobre.html" class="nav-link">SOBRE</a></li>
+                    <li><a href="contato.html" class="nav-link">CONTATO</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="site-main checkout-main">
+        <section class="checkout-header">
+            <a href="index.html" class="checkout-back-link">
+                <i class="fas fa-arrow-left"></i>
+                Voltar para a loja
+            </a>
+            <h1>Finalizar compra</h1>
+            <p>Revise o pedido, escolha o frete e selecione a forma de pagamento.</p>
+        </section>
+
+        <section class="checkout-layout" aria-label="Finalização do pedido">
+            <div class="checkout-flow">
+                <section class="checkout-card" aria-labelledby="delivery-title">
+                    <div class="checkout-card-header">
+                        <span class="checkout-step">1</span>
+                        <div>
+                            <h2 id="delivery-title">Entrega</h2>
+                            <p>Informe o CEP para visualizar as opções disponíveis.</p>
+                        </div>
+                    </div>
+
+                    <div class="cep-form">
+                        <label for="cep">CEP de entrega</label>
+                        <div class="cep-row">
+                            <input type="text" id="cep" name="cep" inputmode="numeric" maxlength="9" placeholder="00000-000">
+                            <button type="button" id="calculate-shipping">
+                                <i class="fas fa-truck-fast"></i>
+                                Calcular
+                            </button>
+                        </div>
+                        <p class="cep-hint" id="cep-hint">Digite seu CEP para simular o prazo e o valor do frete.</p>
+                    </div>
+
+                    <div class="shipping-options" id="shipping-options">
+                        <label class="shipping-option selected">
+                            <input type="radio" name="shipping" value="12.90" checked>
+                            <span class="shipping-icon"><i class="fas fa-box"></i></span>
+                            <span>
+                                <strong>Correios PAC</strong>
+                                <small>Entrega econômica em 6 a 8 dias úteis</small>
+                            </span>
+                            <b>R$ 12,90</b>
+                        </label>
+
+                        <label class="shipping-option">
+                            <input type="radio" name="shipping" value="24.90">
+                            <span class="shipping-icon"><i class="fas fa-bolt"></i></span>
+                            <span>
+                                <strong>Correios Sedex</strong>
+                                <small>Entrega expressa em 2 a 3 dias úteis</small>
+                            </span>
+                            <b>R$ 24,90</b>
+                        </label>
+
+                        <label class="shipping-option">
+                            <input type="radio" name="shipping" value="18.50">
+                            <span class="shipping-icon"><i class="fas fa-motorcycle"></i></span>
+                            <span>
+                                <strong>Uber Flash</strong>
+                                <small>Retirada rápida para regiões próximas</small>
+                            </span>
+                            <b>R$ 18,50</b>
+                        </label>
+
+                        <label class="shipping-option">
+                            <input type="radio" name="shipping" value="21.00">
+                            <span class="shipping-icon"><i class="fas fa-route"></i></span>
+                            <span>
+                                <strong>Lalamove</strong>
+                                <small>Entrega local agendada no mesmo dia</small>
+                            </span>
+                            <b>R$ 21,00</b>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="checkout-card" aria-labelledby="payment-title">
+                    <div class="checkout-card-header">
+                        <span class="checkout-step">2</span>
+                        <div>
+                            <h2 id="payment-title">Pagamento</h2>
+                            <p>Escolha como deseja pagar o pedido.</p>
+                        </div>
+                    </div>
+
+                    <div class="payment-options">
+                        <label class="payment-option selected">
+                            <input type="radio" name="payment" value="pix" checked>
+                            <span class="payment-icon"><i class="fas fa-qrcode"></i></span>
+                            <span>
+                                <strong>Pix</strong>
+                                <small>Aprovação imediata após o pagamento.</small>
+                            </span>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="boleto">
+                            <span class="payment-icon"><i class="fas fa-barcode"></i></span>
+                            <span>
+                                <strong>Boleto bancário</strong>
+                                <small>Vencimento em 2 dias úteis.</small>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="payment-preview" id="payment-preview">
+                        <i class="fas fa-qrcode"></i>
+                        <div>
+                            <strong>Pagamento por Pix selecionado</strong>
+                            <p>O QR Code será exibido depois da confirmação visual do pedido.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="checkout-card" aria-labelledby="customer-title">
+                    <div class="checkout-card-header">
+                        <span class="checkout-step">3</span>
+                        <div>
+                            <h2 id="customer-title">Dados do comprador</h2>
+                            <p>Campos visuais para representar o checkout final.</p>
+                        </div>
+                    </div>
+
+                    <div class="customer-grid">
+                        <label>
+                            Nome completo
+                            <input type="text" placeholder="Nome e sobrenome">
+                        </label>
+                        <label>
+                            E-mail
+                            <input type="email" placeholder="voce@email.com">
+                        </label>
+                        <label>
+                            Telefone
+                            <input type="tel" placeholder="(00) 00000-0000">
+                        </label>
+                        <label>
+                            CPF
+                            <input type="text" placeholder="000.000.000-00">
+                        </label>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="order-summary" aria-label="Resumo do pedido">
+                <h2>Resumo</h2>
+                <div class="summary-items" id="summary-items"></div>
+                <p class="summary-empty hidden" id="summary-empty">Seu carrinho está vazio.</p>
+
+                <div class="summary-totals">
+                    <div>
+                        <span>Produtos</span>
+                        <strong id="summary-products">R$ 0,00</strong>
+                    </div>
+                    <div>
+                        <span>Frete</span>
+                        <strong id="summary-shipping">R$ 12,90</strong>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <strong id="summary-total">R$ 0,00</strong>
+                    </div>
+                </div>
+
+                <button type="button" class="place-order-button" id="place-order-button">
+                    <i class="fas fa-lock"></i>
+                    Confirmar pedido
+                </button>
+                <p class="secure-note">
+                    <i class="fas fa-shield-halved"></i>
+                    Ambiente visual de checkout, sem cobrança real.
+                </p>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <nav class="social-links">
+            <a href="https://www.instagram.com/bamira.atelie/" class="social-link social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Nos siga no Instagram">
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+
+            <a href="https://wa.me/5511939064383" class="social-link social-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+            </a>
+        </nav>
+
+        <p class="footer-copyright">
+            &copy; 2026 Bamira Ateliê. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <script src="./scripts/cart.js"></script>
+    <script src="./scripts/checkout.js"></script>
+</body>
+</html>
