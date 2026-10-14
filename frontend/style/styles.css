@@ -165,6 +165,57 @@ body {
     transform: translateX(0);
 }
 
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #25D366;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.26);
+}
+
+.whatsapp-float:focus-visible {
+    outline: 3px solid #155d35;
+    outline-offset: 3px;
+}
+
+.cart-panel.open ~ .whatsapp-float {
+    visibility: hidden;
+}
+
+@media (max-width: 480px) {
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        font-size: 1.65rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .whatsapp-float {
+        transition: none;
+    }
+
+    .whatsapp-float:hover {
+        transform: none;
+    }
+}
+
 .cart-panel-header {
     display: flex;
     justify-content: space-between;
